@@ -10,9 +10,15 @@ interface Installation {
   version: string;
 }
 
+interface Event{
+  timestamp: string;
+  installation: string;
+  scene: string;
+}
+
 function App() {
   const [installations, setInstallations] = useState<Installation[]>([]);
-  const [events, setEvents] = useState<any[]>([]);
+  const [events, setEvents] = useState<Event[]>([]);
   
   const loadData = async () => {
     const installationsResponse = await fetch("http://localhost:8000/installations");
@@ -104,7 +110,21 @@ function App() {
           borderRadius: "4px",
         }}
       >
-        {event.installation} changed scene to {event.scene}
+        <div
+          key={index}
+          style={{
+            border: "1px solid #ccc",
+            padding: "0.5rem",
+            marginBottom: "0.5rem",
+            borderRadius: "4px",
+          }}
+        >
+          <strong>
+            {new Date(event.timestamp).toLocaleTimeString()}
+          </strong>
+          {" "}
+          {event.installation} changed scene to {event.scene}
+        </div>
       </div>
     ))}
   </div>

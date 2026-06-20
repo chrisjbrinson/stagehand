@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from datetime import datetime
 
 class SceneUpdate(BaseModel):
     scene: str
@@ -74,6 +75,7 @@ def update_scene(name: str, scene_update: SceneUpdate):
             EVENTS.insert(
                 0,
                 {
+                    "timestamp": datetime.now().isoformat(),
                     "installation": installation.name,
                     "scene": scene_update.scene
                 }
