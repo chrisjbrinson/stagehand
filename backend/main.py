@@ -20,30 +20,30 @@ class Installation(BaseModel):
     name: str
     status: str
     scene: str
-    cpu: int | None
-    memory: int | None
-    uptime: str
-    version: str
+    #cpu: int | None
+    #memory: int | None
+    #uptime: str
+    #version: str
 
 INSTALLATIONS = [
     Installation(
-        name="Denver Trade Show",
+        name="Test Project",
         status="online",
-        scene="Aurora",
-        cpu=18,
-        memory=42,
-        uptime="12d 4h",
-        version="1.2.2"
-    ),
-    Installation(
-        name="Museum Exhibit",
-        status="offline",
-        scene="Particles",
-        cpu=None,
-        memory=None,
-        uptime="12d 4h",
-        version="1.2.0"
-    )     
+        scene="Aurora"
+        #cpu=18,
+        #memory=42,
+        #uptime="12d 4h",
+        #version="1.2.2"
+    )
+    #Installation(
+    #    name="Museum Exhibit",
+    #    status="offline",
+    #    scene="Particles",
+    #    cpu=None,
+    #    memory=None,
+    #    uptime="12d 4h",
+    #    version="1.2.0"
+    #)     
 ]
 
 EVENTS = []

@@ -4,10 +4,10 @@ interface Installation {
   name: string;
   status: string;
   scene: string;
-  cpu: number | null;
+  /*cpu: number | null;
   memory: number | null;
   uptime: string;
-  version: string;
+  version: string;*/
 }
 
 interface Event{
@@ -56,7 +56,7 @@ function App() {
 
   return (
   <div>
-    <h1>Stagehand</h1>
+    <h1>stageHand</h1>
 
     {installations.map((installation) => (
       <div
@@ -70,10 +70,10 @@ function App() {
       >
         <h2>{installation.name}</h2>
         <p>Status: {installation.status}</p>
-        <p>CPU: {installation.cpu}</p>
+      {/*  <p>CPU: {installation.cpu}</p>
         <p>Memory: {installation.memory}</p>
         <p>Uptime: {installation.uptime}</p>
-        <p>Version: {installation.version}</p>
+        <p>Version: {installation.version}</p>*/}
         <p>Scene: {installation.scene}</p>
 
         <div>
