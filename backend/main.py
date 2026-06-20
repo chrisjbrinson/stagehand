@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from datetime import datetime
+from services.touchdesigner import TouchDesignerClient
 
 class SceneUpdate(BaseModel):
     scene: str
@@ -47,6 +48,8 @@ INSTALLATIONS = [
 
 EVENTS = []
 
+touchdesigner = TouchDesignerClient()
+
 @app.get("/")
 def root():
     return {
@@ -72,6 +75,11 @@ def update_scene(name: str, scene_update: SceneUpdate):
     for installation in INSTALLATIONS:
         if installation.name == name:
             installation.scene = scene_update.scene
+
+            touchdesigner.set_scene(
+                installation.name,
+                scene_update.scene
+            )
             EVENTS.insert(
                 0,
                 {
