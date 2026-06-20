@@ -1,4 +1,4 @@
-# Stagehand
+# stageHand
 
 Stagehand is a prototype installation management platform for interactive experiences and digital exhibits.
 
