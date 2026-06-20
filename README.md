@@ -4,6 +4,12 @@ Stagehand is a prototype installation management platform for interactive experi
 
 The project was created to explore the software architecture behind managing multiple installations, monitoring system health, controlling scene changes, and tracking operational activity.
 
+
+
+https://github.com/user-attachments/assets/cdcbce0c-1d48-427f-abae-dcfbfefda6d1
+
+
+
 ## Features
 
 * Installation dashboard
