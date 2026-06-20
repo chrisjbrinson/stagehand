@@ -34,16 +34,7 @@ INSTALLATIONS = [
         #memory=42,
         #uptime="12d 4h",
         #version="1.2.2"
-    )
-    #Installation(
-    #    name="Museum Exhibit",
-    #    status="offline",
-    #    scene="Particles",
-    #    cpu=None,
-    #    memory=None,
-    #    uptime="12d 4h",
-    #    version="1.2.0"
-    #)     
+    )  
 ]
 
 EVENTS = []
