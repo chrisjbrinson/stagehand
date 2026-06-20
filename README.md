@@ -33,10 +33,11 @@ The project was created to explore the software architecture behind managing mul
 * Trigger scene changes
 * Record activity events
 * Display activity feed
+* Event timestamps
 
 ## Future Enhancements
 
-* Event timestamps
+* ~~Event timestamps~~
 * Real-time updates via WebSockets
 * TouchDesigner integration
 * Asset deployment workflows
