@@ -34,12 +34,13 @@ The project was created to explore the software architecture behind managing mul
 * Record activity events
 * Display activity feed
 * Event timestamps
+* TouchDesigner integration
 
 ## Future Enhancements
 
 * ~~Event timestamps~~
 * Real-time updates via WebSockets
-* TouchDesigner integration
+* ~~TouchDesigner integration~~
 * Asset deployment workflows
 * Health monitoring and alerting
 
