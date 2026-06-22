@@ -10,14 +10,6 @@ https://github.com/user-attachments/assets/cdcbce0c-1d48-427f-abae-dcfbfefda6d1
 
 
 
-## Features
-
-* Installation dashboard
-* Scene control API
-* Activity/event logging
-* FastAPI backend
-* React + TypeScript frontend
-
 ## Technology Stack
 
 ### Backend
