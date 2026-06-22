@@ -4,10 +4,10 @@ interface Installation {
   name: string;
   status: string;
   scene: string;
-  /*cpu: number | null;
+  cpu: number | null;
   memory: number | null;
-  uptime: string;
-  version: string;*/
+  fps: number | null;
+
 }
 
 interface Event{
@@ -50,6 +50,8 @@ function App() {
 
   useEffect(() => {
     loadData();
+    const interval = setInterval(loadData, 5000);
+    return () => clearInterval(interval)
   }, []);
 
 
@@ -70,10 +72,9 @@ function App() {
       >
         <h2>{installation.name}</h2>
         <p>Status: {installation.status}</p>
-      {/*  <p>CPU: {installation.cpu}</p>
+        <p>CPU: {installation.cpu}</p>
         <p>Memory: {installation.memory}</p>
-        <p>Uptime: {installation.uptime}</p>
-        <p>Version: {installation.version}</p>*/}
+        <p>FPS: {installation.fps}</p>
         <p>Scene: {installation.scene}</p>
 
         <div>

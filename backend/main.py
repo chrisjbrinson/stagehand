@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from datetime import datetime
 from services.touchdesigner import TouchDesignerClient
+import psutil
 
 class SceneUpdate(BaseModel):
     scene: str
@@ -20,20 +21,19 @@ class Installation(BaseModel):
     name: str
     status: str
     scene: str
-    #cpu: int | None
-    #memory: int | None
-    #uptime: str
-    #version: str
+    cpu: float | None = None
+    memory: float | None = None
+    fps: float | None = None
+
+
 
 INSTALLATIONS = [
     Installation(
         name="Test Project",
         status="online",
-        scene="Aurora"
-        #cpu=18,
-        #memory=42,
-        #uptime="12d 4h",
-        #version="1.2.2"
+        scene="Aurora",
+        cpu=18,
+        memory=42
     )  
 ]
 
@@ -51,7 +51,17 @@ def root():
 
 @app.get("/installations")
 def installations():
+
+    td_status = touchdesigner.get_status()
+    
+    INSTALLATIONS[0].scene = td_status["scene"]
+    INSTALLATIONS[0].cpu = psutil.cpu_percent(interval=0.1)
+    INSTALLATIONS[0].memory = psutil.virtual_memory().percent
+    INSTALLATIONS[0].fps = td_status["fps"]
+
     return INSTALLATIONS
+
+
 
 @app.get("/installations/{name}")
 def get_installation(name: str):
@@ -60,6 +70,9 @@ def get_installation(name: str):
             return installation
 
     return {"error": "Installation not found"}
+
+
+
 
 @app.post("/installations/{name}/scene")
 def update_scene(name: str, scene_update: SceneUpdate):
@@ -86,3 +99,7 @@ def update_scene(name: str, scene_update: SceneUpdate):
 @app.get("/events")
 def get_events():
     return EVENTS
+
+@app.get("/touchdesigner/status")
+def get_touchdesigner_status():
+    return touchdesigner.get_status()

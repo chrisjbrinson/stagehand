@@ -19,3 +19,7 @@ class TouchDesignerClient:
             f"[TouchDesigner] {response.status_code} "
             f"{installation_name} -> {scene_name}"
         )
+    
+    def get_status(self):
+        response = requests.get("http://192.168.224.1:9980/status", timeout=5)
+        return response.json()
