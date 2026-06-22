@@ -41,6 +41,8 @@ https://github.com/user-attachments/assets/cdcbce0c-1d48-427f-abae-dcfbfefda6d1
 * Display activity feed
 * Event timestamps
 * TouchDesigner integration
+* Visible system metrics on dashboard (CPU, Memory, FPS)
+* Auto refresh
 
 ## Future Enhancements
 
